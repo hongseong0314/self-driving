@@ -38,7 +38,8 @@ def camload(w, h, path, avi=False):
         # mask_img = region_mask(edge_img)
         blend_img = line_dectection(frame)
         cv2.imshow("frame", blend_img)
-        out.write(blend_img)
+        if avi:
+            out.write(blend_img)
 
     return capture, frame
 
@@ -53,9 +54,10 @@ def cam_close(cam):
 
 if __name__ == "__main__":
     data_dir = os.path.dirname(os.path.abspath(__file__))
-    path = os.path.join(data_dir, '../data/video/original_vid.mp4')
+    path = os.path.join(data_dir, '../data/original_vid.mp4')
+    print(path)
     w = 1280
     h = 720
-    cam, img = camload(w, h, path=path, avi=True)
+    cam, img = camload(w, h, path=path, avi=False)
     # img_save(img, r"hong/test1.png")
     cam_close(cam)
