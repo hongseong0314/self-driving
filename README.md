@@ -17,6 +17,8 @@
 - [동아리 SAI](https://github.com/sju-coml/SAI)
 - [참고 Reference](https://github.com/ndrplz/self-driving-car)
 
-## Manual
+## Weight File Link
 [yolo v3 weights 파일 다운로드](https://drive.google.com/file/d/13qCKjV1kQ0k0kKwAPc3p23Gr2_GNnxNT/view?usp=sharing)
+[yolo v3 traffic weights 파일 다운로드](https://drive.google.com/file/d/13qCKjV1kQ0k0kKwAPc3p23Gr2_GNnxNT/view?usp=sharing)
+
 ## 앙
