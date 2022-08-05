@@ -1,3 +1,5 @@
+<img width="444" alt="image" src="https://user-images.githubusercontent.com/41141851/183022018-500167c9-0216-4f8f-a226-cbf42838c675.png">
+
 # Autonomous driving
 자율주행에 사용되는 Computer Vision 개념들을 익히고 직접 구현하여 게임에 적용해보자-!
 
