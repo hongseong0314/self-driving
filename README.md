@@ -1,3 +1,20 @@
-# auto
-https://github.com/ndrplz/self-driving-car
-self-driving project
+# Autonomous driving
+자율주행에 사용되는 Computer Vision 개념들을 익히고 직접 구현하여 게임에 적용해보자-!
+
+## Project
+- Self Driving Project
+
+|       학적       |  이름 | 역할 | 이메일 
+|:---------------:|:----:|:---:|:----:|
+| 18, 지능기전      | 조동현 |     |     |
+| 19, 데이터사이언스  | 홍성현 |     |     |
+| 18, 컴퓨터공      | 조용재 |     |     |
+| 18, 지능기전      | 이승훈 |     |     |
+
+
+- [동아리 SAI](https://github.com/sju-coml/SAI)
+- [참고 Reference](https://github.com/ndrplz/self-driving-car)
+
+## Manual
+
+## 앙
