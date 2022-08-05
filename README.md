@@ -19,6 +19,7 @@
 
 ## Weight File Link
 [yolo v3 weights 파일 다운로드](https://drive.google.com/file/d/13qCKjV1kQ0k0kKwAPc3p23Gr2_GNnxNT/view?usp=sharing)
+/br
 [yolo v3 traffic weights 파일 다운로드](https://drive.google.com/file/d/13qCKjV1kQ0k0kKwAPc3p23Gr2_GNnxNT/view?usp=sharing)
 
 ## 앙
