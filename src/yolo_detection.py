@@ -8,7 +8,7 @@ class yolo_detection():
 
         # YOLO NETWORK 재구성
         layer_names = self.YOLO_net.getLayerNames()
-        self.output_layers = [layer_names[i[0] - 1] for i in self.YOLO_net.getUnconnectedOutLayers()]
+        self.output_layers = [layer_names[i - 1] for i in self.YOLO_net.getUnconnectedOutLayers()]
 
         # 원하는 class만 detection
         self.classes = []
