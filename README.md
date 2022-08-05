@@ -8,15 +8,21 @@
 
 |       학적       |  이름 | 역할 | 이메일 
 |:---------------:|:----:|:---:|:----:|
-| 18, 지능기전      | 조동현 |     |     |
-| 19, 데이터사이언스  | 홍성현 |     |     |
-| 18, 컴퓨터공      | 조용재 |     |     |
-| 18, 지능기전      | 이승훈 |     |     |
+| 18, 지능기전      | 조동현 |Vehicle Detection|     |
+| 19, 데이터사이언스  | 홍성현 |Line Detection & main|     |
+| 18, 컴퓨터공      | 조용재 |Traffic Sign Detection|     |
+| 18, 지능기전      | 이승훈 |Segmentation|     |
 
 
 - [동아리 SAI](https://github.com/sju-coml/SAI)
 - [참고 Reference](https://github.com/ndrplz/self-driving-car)
 
-## Manual
-[yolo v3 weights 파일 다운로드](https://drive.google.com/file/d/13qCKjV1kQ0k0kKwAPc3p23Gr2_GNnxNT/view?usp=sharing)
-## 앙
+## Weight File Link
+
+- [yolo v3 weights 파일 다운로드](https://drive.google.com/file/d/13qCKjV1kQ0k0kKwAPc3p23Gr2_GNnxNT/view?usp=sharing)
+
+- [yolo v3 traffic weights 파일 다운로드](https://drive.google.com/file/d/1oo4mZyFXBGF6t5lu4K3RTNBjrJ80hZ1x/view?usp=sharing) 
+
+## Pipeline
+
+## 생수
