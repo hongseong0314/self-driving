@@ -18,5 +18,5 @@
 - [참고 Reference](https://github.com/ndrplz/self-driving-car)
 
 ## Manual
-
+[yolo v3 weights 파일 다운로드](https://drive.google.com/file/d/13qCKjV1kQ0k0kKwAPc3p23Gr2_GNnxNT/view?usp=sharing)
 ## 앙
