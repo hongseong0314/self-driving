@@ -24,9 +24,10 @@
 - [yolo v3 traffic weights 파일 다운로드](https://drive.google.com/file/d/1oo4mZyFXBGF6t5lu4K3RTNBjrJ80hZ1x/view?usp=sharing) 
 
 ## Segmentation map
-GTA5
-![gta5_testimage](https://user-images.githubusercontent.com/81370648/183109696-87f46a09-c46e-4438-9c98-ea9b1e4abfed.png)
-Predicted example
+- GTA5
+![gta5](https://user-images.githubusercontent.com/81370648/183111884-5f09dff1-40d6-4fb8-8994-1facc99ce60f.png)
+
+- Predicted example
 ![segmap](https://user-images.githubusercontent.com/81370648/183110398-556add8f-0816-4cbb-a712-fde88e23a7e0.png)
 
 ## Pipeline
