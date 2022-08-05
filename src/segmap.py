@@ -38,7 +38,7 @@ class Segmap:
         self.resize=True
         self.numpy_transform=False
     def set_networks(self):
-        self.nets['T']=Deeplab(num_classes=19,restore_from='weights/deeplab_gta5')
+        self.nets['T']=Deeplab(num_classes=19,restore_from='/content/drive/MyDrive/deeplab_gta5')
         # for net in self.nets.keys():
             # self.nets[net].cuda()
     def set_eval(self):
