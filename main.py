@@ -1,11 +1,7 @@
-import matplotlib.pyplot as plt
 import os
-from glob import glob
-import sys
 import cv2
-from PIL import Image
-import numpy as np
-from self_model import self_drving_model
+
+from src.self_model import self_drving_model
 
 def camload(w, h, path, avi=False):
     """카메라 켜기"""
@@ -38,6 +34,6 @@ if __name__ == "__main__":
     w = 1280
     h = 720
     
-    cam = camload(w, h, path=path, avi=False)
+    cam = camload(w, h, path=path, avi=True)
     # img_save(img, r"hong/test1.png")
     cam_close(cam)

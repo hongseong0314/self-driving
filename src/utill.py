@@ -569,7 +569,7 @@ def prepare_out_blend_frame(blend_on_road, img_binary, img_birdeye, img_fit, lin
 
     # add thumbnail of binary image
     thumb_binary = cv2.resize(img_binary, dsize=(thumb_w, thumb_h))
-    thumb_binary = np.dstack([thumb_binary, thumb_binary, thumb_binary]) * 255
+    # thumb_binary = np.dstack([thumb_binary, thumb_binary, thumb_binary]) * 255
     blend_on_road[off_y:thumb_h+off_y, off_x:off_x+thumb_w, :] = thumb_binary
 
     # add thumbnail of bird's eye view

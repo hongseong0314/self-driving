@@ -4,7 +4,7 @@ import numpy as np
 class yolo_detection():
     def __init__(self):
         # YOLO 가중치 파일과 CFG 파일 로드
-        self.YOLO_net = cv2.dnn.readNet("./../weights/yolov3.weights","./../weights/yolov3.cfg")
+        self.YOLO_net = cv2.dnn.readNet("./weights/yolov3.weights","./weights/yolov3.cfg")
 
         # YOLO NETWORK 재구성
         layer_names = self.YOLO_net.getLayerNames()
@@ -12,7 +12,7 @@ class yolo_detection():
 
         # 원하는 class만 detection
         self.classes = []
-        with open("./../weights/yolo.names", "r") as f:
+        with open("./weights/yolo.names", "r") as f:
             self.classes = [line.strip() for line in f.readlines()]
         self.class_only_name = [
             "person", "bicycle", "car", "motorbike", "aeroplane", "bus", "train", "truck", "boat", 
@@ -20,7 +20,7 @@ class yolo_detection():
         ]
         self.class_only_index = [i for i, name in enumerate(self.classes) if name in self.class_only_name]
 
-    def run(self, frame):
+    def run(self, frame, overlap_img):
         h, w, c = frame.shape
         """YOLO 입력
         image: 입력 영상
@@ -65,27 +65,27 @@ class yolo_detection():
                 label = str(self.classes[class_ids[i]])
                 score = confidences[i]
                 # 경계상자와 클래스 정보 이미지에 입력
-                cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 3)
-                cv2.putText(frame, label, (x, y - 10), cv2.FONT_ITALIC, 0.5, (0, 0, 255), 2)
-                cv2.putText(frame, (f"{score:.2f}"), (x, y + h + 20), cv2.FONT_ITALIC, 0.5, (255, 200, 0), 2)
-        cv2.imshow("YOLOv3", frame)
-        return frame
+                cv2.rectangle(overlap_img, (x, y), (x + w, y + h), (0, 255, 0), 3)
+                cv2.putText(overlap_img, label, (x, y - 10), cv2.FONT_ITALIC, 0.5, (0, 0, 255), 2)
+                cv2.putText(overlap_img, (f"{score:.2f}"), (x, y + h + 20), cv2.FONT_ITALIC, 0.5, (255, 200, 0), 2)
+        # cv2.imshow("YOLOv3", frame)
+        return overlap_img
 
-if __name__ == "__main__":
-    yoo = yolo_detection()
-    VideoSignal = cv2.VideoCapture("./../donghyeoncho/carcar.mp4")
+# if __name__ == "__main__":
+#     yoo = yolo_detection()
+#     VideoSignal = cv2.VideoCapture("./../donghyeoncho/carcar.mp4")
 
-    i=0
-    while True:
-        # 웹캠 프레임
-        ret, frame = VideoSignal.read()
-        if i<200:
-            i+=1
-            continue
+#     i=0
+#     while True:
+#         # 웹캠 프레임
+#         ret, frame = VideoSignal.read()
+#         if i<200:
+#             i+=1
+#             continue
 
-        ff = yoo.run(frame)
-        # cv2.imwrite("result.jpg", ff)
+#         ff = yoo.run(frame)
+#         # cv2.imwrite("result.jpg", ff)
 
-        # input('sleep')
-        if cv2.waitKey(100) > 0:
-            break
+#         # input('sleep')
+#         if cv2.waitKey(100) > 0:
+#             break
