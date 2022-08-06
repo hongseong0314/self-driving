@@ -7,15 +7,11 @@ import cv2
 import glob
 import matplotlib.pyplot as plt
 import sys
+import collections
 
 def undistort(frame, mtx, dist, img_plot=False):
     """
-    Undistort a frame given camera matrix and distortion coefficients.
-    :param frame: input frame
-    :param mtx: camera matrix
-    :param dist: distortion coefficients
-    :param verbose: if True, show frame before/after distortion correction
-    :return: undistorted frame
+
     """
     frame_undistorted = cv2.undistort(frame, mtx, dist, newCameraMatrix=mtx)
 
@@ -90,10 +86,7 @@ def get_binary_from_equalized_grayscale(frame):
 
 def binarize(img, verbose=False):
     """
-    Convert an input frame to a binary image which highlight as most as possible the lane-lines.
-    :param img: input color frame
-    :param verbose: if True, show intermediate results
-    :return: binarized frame
+
     """
     h, w = img.shape[:2]
 
@@ -149,10 +142,7 @@ bird eye view 코드 부분
 """
 def birdeye(img, verbose=False):
     """
-    Apply perspective transform to input frame to get the bird's eye view.
-    :param img: input color frame
-    :param verbose: if True, show the transformation result
-    :return: warped image, and both forward and backward transformation matrices
+
     """
     h, w = img.shape[:2]
     global mtx, dist
@@ -191,7 +181,6 @@ def birdeye(img, verbose=False):
 """
 sliding winodw and line detection 코드 부분
 """
-import collections
 
 class Line:
     """
@@ -218,12 +207,7 @@ class Line:
 
     def update_line(self, new_fit_pixel, new_fit_meter, detected, clear_buffer=False):
         """
-        Update Line with new fitted coefficients.
-        :param new_fit_pixel: new polynomial coefficients (pixel)
-        :param new_fit_meter: new polynomial coefficients (meter)
-        :param detected: if the Line was detected or inferred
-        :param clear_buffer: if True, reset state
-        :return: None
+
         """
         self.detected = detected
 
@@ -279,13 +263,7 @@ class Line:
 
 def get_fits_by_sliding_windows(birdeye_binary, line_lt, line_rt, n_windows=9, verbose=False):
     """
-    Get polynomial coefficients for lane-lines detected in an binary image.
-    :param birdeye_binary: input bird's eye view binary image
-    :param line_lt: left lane-line previously detected
-    :param line_rt: left lane-line previously detected
-    :param n_windows: number of sliding windows used to search for the lines
-    :param verbose: if True, display intermediate output
-    :return: updated lane lines and output image
+
     """
     height, width = birdeye_binary.shape
 
@@ -407,13 +385,7 @@ def get_fits_by_sliding_windows(birdeye_binary, line_lt, line_rt, n_windows=9, v
 
 def get_fits_by_previous_fits(birdeye_binary, line_lt, line_rt, verbose=False):
     """
-    Get polynomial coefficients for lane-lines detected in an binary image.
-    This function starts from previously detected lane-lines to speed-up the search of lane-lines in the current frame.
-    :param birdeye_binary: input bird's eye view binary image
-    :param line_lt: left lane-line previously detected
-    :param line_rt: left lane-line previously detected
-    :param verbose: if True, display intermediate output
-    :return: updated lane lines and output image
+
     """
 
     height, width = birdeye_binary.shape
@@ -497,13 +469,7 @@ def get_fits_by_previous_fits(birdeye_binary, line_lt, line_rt, verbose=False):
 
 def draw_back_onto_the_road(img_undistorted, Minv, line_lt, line_rt, keep_state):
     """
-    Draw both the drivable lane area and the detected lane-lines onto the original (undistorted) frame.
-    :param img_undistorted: original undistorted color frame
-    :param Minv: (inverse) perspective transform matrix used to re-project on original frame
-    :param line_lt: left lane-line previously detected
-    :param line_rt: right lane-line previously detected
-    :param keep_state: if True, line state is maintained
-    :return: color blend
+
     """
     height, width, _ = img_undistorted.shape
 
@@ -544,17 +510,7 @@ def draw_back_onto_the_road(img_undistorted, Minv, line_lt, line_rt, keep_state)
 """
 
 def prepare_out_blend_frame(blend_on_road, img_binary, img_birdeye, img_fit, line_lt, line_rt, offset_meter):
-    """
-    Prepare the final pretty pretty output blend, given all intermediate pipeline images
-    :param blend_on_road: color image of lane blend onto the road
-    :param img_binary: thresholded binary image
-    :param img_birdeye: bird's eye view of the thresholded binary image
-    :param img_fit: bird's eye view with detected lane-lines highlighted
-    :param line_lt: detected left lane-line
-    :param line_rt: detected right lane-line
-    :param offset_meter: offset from the center of the lane
-    :return: pretty blend with all images and stuff stitched
-    """
+
     h, w = blend_on_road.shape[:2]
 
     thumb_ratio = 0.2
@@ -591,15 +547,7 @@ def prepare_out_blend_frame(blend_on_road, img_binary, img_birdeye, img_fit, lin
 
 def compute_offset_from_center(line_lt, line_rt, frame_width):
     """
-    Compute offset from center of the inferred lane.
-    The offset from the lane center can be computed under the hypothesis that the camera is fixed
-    and mounted in the midpoint of the car roof. In this case, we can approximate the car's deviation
-    from the lane center as the distance between the center of the image and the midpoint at the bottom
-    of the image of the two lane-lines detected.
-    :param line_lt: detected left lane-line
-    :param line_rt: detected right lane-line
-    :param frame_width: width of the undistorted frame
-    :return: inferred offset
+
     """
     if line_lt.detected and line_rt.detected:
         line_lt_bottom = np.mean(line_lt.all_x[line_lt.all_y > 0.95 * line_lt.all_y.max()])
