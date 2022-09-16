@@ -6,12 +6,12 @@
 ## Project
 - Self Driving Project
 
-|       학적       |  이름 | 역할 |
+|       학적       |  이름 | 역할 | 이메일 
 |:---------------:|:----:|:---:|:----:|
-| 18, 지능기전      | 조동현 |Vehicle Detection|
-| 19, 데이터사이언스  | 홍성현 |Line Detection & main|
-| 18, 컴퓨터공      | 조용재 |Traffic Sign Detection|
-| 18, 지능기전      | 이승훈 |Segmentation|
+| 18, 지능기전      | 조동현 |Vehicle Detection|     |
+| 19, 데이터사이언스  | 홍성현 |Line Detection & main|     |
+| 18, 컴퓨터공      | 조용재 |Traffic Sign Detection|     |
+| 18, 지능기전      | 이승훈 |Segmentation|     |
 
 
 - [동아리 SAI](https://github.com/sju-coml/SAI)
