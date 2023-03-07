@@ -33,7 +33,3 @@
 - **Predicted example**
 
 ![segmap](https://user-images.githubusercontent.com/81370648/183110398-556add8f-0816-4cbb-a712-fde88e23a7e0.png)
-
-## Pipeline
-
-## 생수
